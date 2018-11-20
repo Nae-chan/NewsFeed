@@ -21,7 +21,7 @@
         android:textAppearance="?android:textAppearanceMedium"
         tools:text="No Info Available" />
 
-    <!-- Loading indicator for user feedback between queries to USGS -->
+    <!-- Loading indicator for user feedback between queries to theGuardian -->
     <ProgressBar
         android:id="@+id/loading_indicator"
         style="@style/Widget.AppCompat.ProgressBar"
