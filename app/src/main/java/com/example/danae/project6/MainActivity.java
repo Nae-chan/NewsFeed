@@ -21,19 +21,25 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements LoaderCallbacks<List<NewsItem>> {
 
-    private static final String LOG_TAG = MainActivity.class.getName();
-
-    /** URL for news data from theguardian dataset */
+    /**
+     * URL for news data from theguardian dataset
+     */
     private static final String NEWS_ITEM_URL =
             "https://content.guardianapis.com/search?api-key=9799e96e-92fa-4f55-a2bb-b652610b0015";
 
-    /**Constant value for the earthquake loader ID.*/
+    /**
+     * Constant value for the earthquake loader ID.
+     */
     private static final int NEWS_ITEM_LOADER_ID = 1;
 
-    /** Adapter for the list of newsItems */
+    /**
+     * Adapter for the list of newsItems
+     */
     private NewsItemAdapter mAdapter;
 
-    /** TextView that is displayed when the list is empty */
+    /**
+     * TextView that is displayed when the list is empty
+     */
     private TextView mEmptyStateTextView;
 
     @Override
@@ -96,10 +102,11 @@ public class MainActivity extends AppCompatActivity
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
     }
+
     @Override
     public Loader<List<NewsItem>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
-        return new NewsItemLoader (this, NEWS_ITEM_URL);
+        return new NewsItemLoader(this, NEWS_ITEM_URL);
     }
 
     @Override
@@ -124,5 +131,5 @@ public class MainActivity extends AppCompatActivity
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
-    }
+}
 

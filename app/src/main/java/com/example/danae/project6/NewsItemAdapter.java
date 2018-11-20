@@ -1,6 +1,7 @@
 package com.example.danae.project6;
 
 import android.content.Context;
+import java.text.ParseException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
      * This {@link NewsItemAdapter} knows how to create a list item layout for each newsItem
@@ -59,11 +61,8 @@ import java.util.List;
             // Find the TextView with view ID Date
             TextView dateView = (TextView) listItemView.findViewById(R.id.date);
 
-            // Create a new Date object from the date of current newsItem
-            Date dateObject = new Date(currentNewsItem.getDate());
-
             // Format the date string
-            String formattedDate = formatDate(dateObject);
+            String formattedDate = formatDate(currentNewsItem.getDate());
 
             // Display the date of the current newsItem in that TextView
             dateView.setText(formattedDate);
@@ -74,13 +73,27 @@ import java.util.List;
         }
 
 
-
         /**
          * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
          */
-        //private String formatDate(Date dateObject) {
-         //   SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-         //   return dateFormat.format(dateObject);
-       // }
+        public String formatDate(String date) {
+
+            //Create SimpleDateFormat object matching the pattern in response
+            final SimpleDateFormat dateFormatter=
+                    new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'",
+                            Locale.getDefault());
+            //Set date_out to null, attempt to parse date or catch ParseException
+            Date date_out = null;
+            try {
+                date_out = dateFormatter.parse(date);
+            } catch (final ParseException e) {
+                e.printStackTrace();
+            }
+            //Format date into abbreviated date pattern
+            final SimpleDateFormat outputFormatter=
+                    new SimpleDateFormat("MM dd 'yy", Locale.US);
+            //Return Formatted Date
+            return outputFormatter.format(date_out);
+        }
 
 }
