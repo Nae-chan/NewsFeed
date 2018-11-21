@@ -10,28 +10,27 @@
         android:id="@+id/category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Category"
         android:lines="1"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         android:textStyle="italic"
-    />
+        tools:text="Category" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
         android:ellipsize="end"
         android:maxLines="2"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        tools:text="Titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="1"
-        tools:text="November 10, 2018"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        tools:text="November 10, 2018" />
 
 </LinearLayout>

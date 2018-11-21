@@ -1,14 +1,15 @@
 package com.example.danae.project6;
 
 import android.content.Context;
+
 import java.text.ParseException;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -25,10 +26,10 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
     /**
      * Constructs a new {@link NewsItemAdapter}.
      *
-     * @param context of the app
+     * @param context   of the app
      * @param newsItems is the list of newsItems, which is the data source of the adapter
      */
-    public NewsItemAdapter (Context context, List<NewsItem> newsItems) {
+    public NewsItemAdapter(Context context, List<NewsItem> newsItems) {
         super(context, 0, newsItems);
     }
 
@@ -80,7 +81,7 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
     public String formatDate(String date) {
 
         //Create SimpleDateFormat object matching the pattern in response
-        final SimpleDateFormat dateFormatter=
+        final SimpleDateFormat dateFormatter =
                 new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'",
                         Locale.getDefault());
         //Set date_out to null, attempt to parse date or catch ParseException
@@ -91,7 +92,7 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
             e.printStackTrace();
         }
         //Format date into abbreviated date pattern
-        final SimpleDateFormat outputFormatter=
+        final SimpleDateFormat outputFormatter =
                 new SimpleDateFormat("MMM dd ''yy", Locale.US);
         //Return Formatted Date
         return outputFormatter.format(date_out);

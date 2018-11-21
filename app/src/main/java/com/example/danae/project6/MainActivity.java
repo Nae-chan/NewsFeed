@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity
             "https://content.guardianapis.com/search?api-key=9799e96e-92fa-4f55-a2bb-b652610b0015";
 
     /**
-     * Constant value for the earthquake loader ID.
+     * Constant value for the newsItems loader ID.
      */
     private static final int NEWS_ITEM_LOADER_ID = 1;
 
@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No earthquakes found."
-        mEmptyStateTextView.setText(R.string.no_earthquakes);
+        // Set empty state text to display "No Breaking News!"
+        mEmptyStateTextView.setText(R.string.no_breaking_news);
 
         // If there is a valid list of {@link newsItem}s, then add them to the adapter's
         // data set and update the ListView.

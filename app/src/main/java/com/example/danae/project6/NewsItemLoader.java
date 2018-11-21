@@ -11,17 +11,21 @@ import java.util.List;
  */
 public class NewsItemLoader extends AsyncTaskLoader<List<NewsItem>> {
 
-    /** Tag for log messages */
+    /**
+     * Tag for log messages
+     */
     private static final String LOG_TAG = NewsItemLoader.class.getName();
 
-    /** Query URL */
+    /**
+     * Query URL
+     */
     private String mUrl;
 
     /**
      * Constructs a new {@link NewsItemLoader}.
      *
      * @param context of the activity
-     * @param url to load data from
+     * @param url     to load data from
      */
     public NewsItemLoader(Context context, String url) {
         super(context);
