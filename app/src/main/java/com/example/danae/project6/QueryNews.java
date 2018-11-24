@@ -94,6 +94,9 @@ public final class QueryNews {
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
+                Log.i(LOG_TAG,
+                        "QueryNews makeHttpRequest:" +
+                                " SUCCESSFULLY CONNECTED JSON RESPONSE RETRIEVED from:" + url);
             } else {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
@@ -101,6 +104,8 @@ public final class QueryNews {
             Log.e(LOG_TAG, "Problem retrieving the newsItems JSON results.", e);
         } finally {
             if (urlConnection != null) {
+                https:
+//github.com/Nae-chan/NewsFeed
                 urlConnection.disconnect();
             }
             if (inputStream != null) {
@@ -177,9 +182,18 @@ public final class QueryNews {
                 // Extract the value for the key called "WebUrl"
                 String url = currentNewsItem.getString("webUrl");
 
+                //Get JSON array with key named "tags" to get the author
+                JSONArray jsonArrayTags = currentNewsItem.getJSONArray("tags");
+
+                //Get the JSON Object within the Tags array
+                JSONObject jsonObjectTags = jsonArrayTags.getJSONObject(0);
+
+                // Extract author's name from the key called "webTitle"
+                String author = jsonObjectTags.getString("webTitle");
+
                 // Create a new {@link NewsItem} object with the category, title, date,
-                // and url from the JSON response.
-                NewsItem newsItem = new NewsItem(category, title, date, url);
+                // url, and author from the JSON response.
+                NewsItem newsItem = new NewsItem(category, title, date, url, author);
 
                 // Add the new {@link NewsItem} to the list of newsItems.
                 newsItems.add(newsItem);

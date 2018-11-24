@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
      * URL for news data from theguardian dataset
      */
     private static final String NEWS_ITEM_URL =
-            "https://content.guardianapis.com/search?api-key=9799e96e-92fa-4f55-a2bb-b652610b0015";
+            "https://content.guardianapis.com/search?";
 
     /**
      * Constant value for the newsItems loader ID.
@@ -106,7 +106,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public Loader<List<NewsItem>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
-        return new NewsItemLoader(this, NEWS_ITEM_URL);
+
+        Uri baseUri = Uri.parse(NEWS_ITEM_URL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        //Append Query param & it's respective value.
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        uriBuilder.appendQueryParameter("api-key", "");  //TODO:<<<<<<ADD TESTERS API-KEY inside empty quotes
+
+        //Create new loader and return completed built URI:
+        return new NewsItemLoader(this, uriBuilder.toString());
     }
 
     @Override

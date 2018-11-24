@@ -26,11 +26,18 @@
         tools:text="Titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" />
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="1"
         android:textSize="18sp"
-        tools:text="November 10, 2018" />
+        tools:text="John Doe" />
 
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:textStyle="italic"
+        tools:text="November 10, 2018" />
 </LinearLayout>

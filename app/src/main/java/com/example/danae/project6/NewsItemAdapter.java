@@ -69,6 +69,10 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
         // Display the date of the current newsItem in that TextView
         dateView.setText(formattedDate);
 
+        // Find the TextView with view ID author
+        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
+        // Display the author of the current newsItem in that TextView
+        authorView.setText(currentNewsItem.getAuthor());
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
