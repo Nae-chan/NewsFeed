@@ -10,10 +10,10 @@
         android:title="@string/settings_order_by_label" />
 
     <EditTextPreference
-        android:defaultValue="@string/settings_category_default"
+        android:defaultValue="@string/settings_topic_default"
         android:inputType="textCapWords"
-        android:key="@string/settings_category_key"
+        android:key="@string/settings_topic_key"
         android:selectAllOnFocus="true"
-        android:title="@string/settings_category" />
+        android:title="@string/settings_topic" />
 
 </PreferenceScreen>

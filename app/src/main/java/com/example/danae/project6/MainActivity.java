@@ -114,8 +114,8 @@ public class MainActivity extends AppCompatActivity
 
         //Get user's preferences use as parameter
         String topic = sharedPreferences.getString(
-                getString(R.string.settings_category_key),
-                getString(R.string.settings_category_default));
+                getString(R.string.settings_topic_key),
+                getString(R.string.settings_topic_default));
 
         String orderBy = sharedPreferences.getString(
                 getString(R.string.settings_order_by_key),
