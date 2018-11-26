@@ -185,11 +185,18 @@ public final class QueryNews {
                 //Get JSON array with key named "tags" to get the author
                 JSONArray jsonArrayTags = currentNewsItem.getJSONArray("tags");
 
-                //Get the JSON Object within the Tags array
-                JSONObject jsonObjectTags = jsonArrayTags.getJSONObject(0);
+                String author = null;
+                try {
+                    //Get the JSON Object within the Tags array
+                    JSONObject jsonObjectTags = jsonArrayTags.getJSONObject(0);
 
-                // Extract author's name from the key called "webTitle"
-                String author = jsonObjectTags.getString("webTitle");
+                    if (jsonArrayTags != null) {
+                        // Extract author's name from the key called "webTitle"
+                        author = jsonObjectTags.getString("webTitle");
+                    }
+                } catch (JSONException e) {
+                    Log.e("QueryUtils", "No Author info", e);
+                }
 
                 // Create a new {@link NewsItem} object with the category, title, date,
                 // url, and author from the JSON response.

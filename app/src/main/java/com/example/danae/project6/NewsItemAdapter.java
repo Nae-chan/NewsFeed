@@ -51,17 +51,17 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
         NewsItem currentNewsItem = getItem(position);
 
         // Find the TextView with view ID category
-        TextView categoryView = (TextView) listItemView.findViewById(R.id.category);
+        TextView categoryView = listItemView.findViewById(R.id.category);
         // Display the category of the current newsItem in that TextView
         categoryView.setText(currentNewsItem.getCategory());
 
         // Find the TextView with view ID title
-        TextView titleView = (TextView) listItemView.findViewById(R.id.title);
+        TextView titleView = listItemView.findViewById(R.id.title);
         // Display the title of the current newsItem in that TextView
         titleView.setText(currentNewsItem.getTitle());
 
         // Find the TextView with view ID Date
-        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
+        TextView dateView = listItemView.findViewById(R.id.date);
 
         // Format the date string
         String formattedDate = formatDate(currentNewsItem.getDate());
@@ -70,9 +70,18 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
         dateView.setText(formattedDate);
 
         // Find the TextView with view ID author
-        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
+        TextView authorView = listItemView.findViewById(R.id.author);
+
         // Display the author of the current newsItem in that TextView
-        authorView.setText(currentNewsItem.getAuthor());
+
+        String authorFromJson = currentNewsItem.getAuthor();
+
+        if (authorFromJson == null) {
+            authorView.setVisibility(View.GONE);
+        } else {
+            authorView.setText(authorFromJson);
+        }
+
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
